@@ -55,10 +55,18 @@ var count = 0
 var nextButton = document.querySelector("#next-button")
 nextButton.addEventListener("click", nextQuestion)
 
-
+//Function determining if answer is Correct
 function selectAnswer(element) {
-    element.innerHTML
-
+    var selectedAnswer = element.innerHTML
+    var question = questions[count]
+    if (question.correctAnswer === selectedAnswer) {
+        alert("Correct!")
+    }
+    else {
+        alert("Incorrect!")
+    }
+    console.log(selectedAnswer)
+    console.log(question.correctAnswer)
 }
 var buttonTags = document.querySelector("#answer-buttons").children
 console.log(buttonTags)
@@ -67,8 +75,8 @@ var answer2 = buttonTags[1]
 var answer3 = buttonTags[2]
 var answer4 = buttonTags[3]
 
-answer1.addEventListener("click", selectAnswer)
-answer2.addEventListener("click", selectAnswer)
-answer3.addEventListener("click", selectAnswer)
-answer4.addEventListener("click", selectAnswer)
+// answer1.addEventListener("click", selectAnswer)
+// answer2.addEventListener("click", selectAnswer)
+// answer3.addEventListener("click", selectAnswer)
+// answer4.addEventListener("click", selectAnswer)
 
