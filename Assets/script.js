@@ -12,6 +12,7 @@ function start() {
 function nextQuestion() {
 
     if (count < questions.length) {
+        count++
 
         var question = questions[count]
         var questionTag = document.querySelector("#question")
@@ -27,13 +28,21 @@ function nextQuestion() {
         answer3.innerHTML = question.Answer3
         answer4.innerHTML = question.Answer4
         console.log(count)
-        count++
+
 
     }
 
 
 }
 var questions = [{
+    Question: "Which is an HTML element?",
+    Answer1: "Rock",
+    Answer2: "Paper",
+    Answer3: "Sciccors",
+    Answer4: "Div",
+
+    correctAnswer: "Div"
+}, {
     Question: "Which is a Coding Language?",
     Answer1: "Basketball",
     Answer2: "Soccer",
@@ -61,6 +70,9 @@ function selectAnswer(element) {
     var question = questions[count]
     if (question.correctAnswer === selectedAnswer) {
         alert("Correct!")
+        score++
+        var keepScore = document.querySelector("#Score")
+        keepScore.innerHTML = "Total Score " + (score / 3 * 100)
     }
     else {
         alert("Incorrect!")
@@ -75,8 +87,5 @@ var answer2 = buttonTags[1]
 var answer3 = buttonTags[2]
 var answer4 = buttonTags[3]
 
-// answer1.addEventListener("click", selectAnswer)
-// answer2.addEventListener("click", selectAnswer)
-// answer3.addEventListener("click", selectAnswer)
-// answer4.addEventListener("click", selectAnswer)
+var score = 0
 
