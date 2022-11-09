@@ -22,6 +22,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: hsl(var(--hue), 100%, 25%);
+
 }
 
 body.correct {
@@ -55,7 +56,7 @@ body.incorrect {
     background-color: hsl(var(--hue), 100%, 50%);
     border-radius: 5px;
     padding: 5px 10px;
-    color: black;
+    color:navy;
     outline: none;
 
 }
