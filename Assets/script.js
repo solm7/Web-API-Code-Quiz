@@ -6,6 +6,7 @@ function start() {
     startButton.className = "hide"
     var nextButton = document.querySelector("#next-button")
     nextButton.className = "grid"
+    setTime()
 
 }
 
@@ -28,10 +29,18 @@ function nextQuestion() {
         answer3.innerHTML = question.Answer3
         answer4.innerHTML = question.Answer4
         console.log(count)
-
-
     }
 
+
+}
+if (count === 3) {
+    var studentGrade = {
+        Grade: score
+
+    }
+    localStorage.setItem("TotalScore", JSON.stringify(studentGrade));
+    var answerButtons = document.querySelector("#answer-buttons")
+    answerButtons.className = "hide"
 
 }
 var questions = [{
@@ -76,9 +85,28 @@ function selectAnswer(element) {
     }
     else {
         alert("Incorrect!")
+        secondsLeft = secondsLeft - 4
     }
     console.log(selectedAnswer)
     console.log(question.correctAnswer)
+}
+var timeEl = document.querySelector("#Time");
+//Timer Function
+var secondsLeft = 60;
+
+function setTime() {
+
+    var timerInterval = setInterval(function () {
+        secondsLeft--;
+        timeEl.textContent = secondsLeft + " seconds left in quiz.";
+
+        if (secondsLeft === 0) {
+            clearInterval(timerInterval);
+            var answerButtons = document.querySelector("#answer-buttons")
+            answerButtons.className = "hide"
+        }
+
+    }, 1000);
 }
 var buttonTags = document.querySelector("#answer-buttons").children
 console.log(buttonTags)
@@ -88,4 +116,6 @@ var answer3 = buttonTags[2]
 var answer4 = buttonTags[3]
 
 var score = 0
+
+
 
